@@ -1,13 +1,16 @@
 ## Descripción del Proyecto
 
-Esta aplicación es un proyecto desarrollado en Java utilizando Spring Boot y Maven. Su objetivo es [describir brevemente el propósito de la aplicación, por ejemplo: gestionar usuarios, procesar información, exponer servicios REST, etc.].
+Esta aplicación es un proyecto desarrollado en Java utilizando Spring Boot y Maven. Su objetivo es simular el envío de correos para mostrar las bondades de tener métricas del desarrollo apoyados en herramientas como Prometheus.
 
 ## Tecnologías Utilizadas
 
 - Java 17+
 - Spring Boot
 - Maven
-- [Otras dependencias relevantes, como Spring Data JPA, Spring Security, etc.]
+- Prometheus
+- Spring Actuator
+- Spring Scheduler
+- Spring Mail (simulado)
 
 ## Estructura del Proyecto
 
@@ -32,7 +35,7 @@ El proyecto sigue la estructura estándar de una aplicación Spring Boot con Mav
 1. Clona el repositorio.
 2. Ejecuta `mvn clean install` para compilar el proyecto.
 3. Inicia la aplicación con `mvn spring-boot:run` o desde tu IDE.
-4. Accede a los endpoints disponibles, por ejemplo: `http://localhost:8080/actuator/health`.
+4. Accede a los endpoints disponibles, por ejemplo: `http://localhost:8088/actuator/health`.
 
 ## Endpoints Actuator
 
