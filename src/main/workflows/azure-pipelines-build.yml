@@ -1,0 +1,28 @@
+trigger:
+  - main
+
+variables:
+  ACR_NAME: adesaunisabanaregistry
+  IMAGE_NAME: springboot-microservice-mailer
+
+stages:
+  - stage: Build
+    displayName: 'Build and Push Docker Image'
+    jobs:
+      - job: Build
+        pool:
+          vmImage: 'ubuntu-latest'
+        steps:
+          - checkout: self
+          - task: Gradle@2
+            inputs:
+              gradleWrapperFile: 'gradlew'
+              tasks: 'build'
+          - task: AzureCLI@2
+            inputs:
+              azureSubscription: 'aks-connection'
+              scriptType: 'bash'
+              scriptLocation: 'inlineScript'
+              inlineScript: |
+                az acr build --registry adesaunisabanaregistry --image springboot-microservice-mailer:$(Build.BuildId) .
+
